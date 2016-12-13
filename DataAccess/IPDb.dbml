@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MAINAMDB" Class="IPDbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=MAINAMDB.mssql.somee.com;Initial Catalog=MAINAMDB;Persist Security Info=False;User ID=mainam_SQLLogin_1;Packet Size=4096;Workstation ID=MAINAMDB.mssql.somee.com" SettingsObjectName="DataAccess.Properties.Settings" SettingsPropertyName="MAINAMDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.IPLOCATION" Member="IPLOCATIONs">
+    <Type Name="IPLOCATION">
+      <Column Name="IP_FROM" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="IP_TO" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="COUNTRY_CODE" Type="System.String" DbType="NVarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="COUNTRY_NAME" Type="System.String" DbType="NVarChar(64) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

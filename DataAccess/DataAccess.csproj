@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C82A2256-CB93-4B2B-856F-3E9A70DD887A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataAccess</RootNamespace>
+    <AssemblyName>DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CatDb.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CatDb.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="dao\CategoryInfo.cs" />
+    <Compile Include="dao\FlatformInfo.cs" />
+    <Compile Include="dao\IPDAO.cs" />
+    <Compile Include="dao\IPInfo.cs" />
+    <Compile Include="dao\LeadDAO.cs" />
+    <Compile Include="dao\MemberDAO.cs" />
+    <Compile Include="dao\NetDAO.cs" />
+    <Compile Include="dao\NoticeDAO.cs" />
+    <Compile Include="dao\OfferDAO.cs" />
+    <Compile Include="dao\OfferInfo.cs" />
+    <Compile Include="dao\PostBackReceiverDAO.cs" />
+    <Compile Include="dao\TrackingDAO.cs" />
+    <Compile Include="dao\UserDAO.cs" />
+    <Compile Include="dao\DatabaseFunction.cs" />
+    <Compile Include="entity\ClickInformation.cs" />
+    <Compile Include="entity\IP.cs" />
+    <Compile Include="entity\Lead.cs" />
+    <Compile Include="entity\Link.cs" />
+    <Compile Include="entity\Member.cs" />
+    <Compile Include="entity\Net.cs" />
+    <Compile Include="entity\Notice.cs" />
+    <Compile Include="entity\Offer.cs" />
+    <Compile Include="entity\PostBackReceiver.cs" />
+    <Compile Include="entity\Tracking.cs" />
+    <Compile Include="entity\User.cs" />
+    <Compile Include="FlatformDb.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FlatformDb.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="IPDb.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IPDb.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="NetDb.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NetDb.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="dao\NetInfo.cs" />
+    <Compile Include="dao\MemberInfo.cs" />
+    <Compile Include="OfferDb.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OfferDb.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="UserDb.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserDb.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="UtilFolder\Constants.cs" />
+    <Compile Include="UtilFolder\IPUtility.cs" />
+    <Compile Include="UtilFolder\StringUtils.cs" />
+    <Compile Include="UtilFolder\Security.cs" />
+    <Compile Include="UtilFolder\Converts.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="CatDb.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>CatDb.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FlatformDb.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>FlatformDb.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="IPDb.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>IPDb.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="NetDb.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>NetDb.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OfferDb.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>OfferDb.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="UserDb.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>UserDb.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="OfferDb.dbml.layout">
+      <DependentUpon>OfferDb.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CatDb.dbml.layout">
+      <DependentUpon>CatDb.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UserDb.dbml.layout">
+      <DependentUpon>UserDb.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="NetDb.dbml.layout">
+      <DependentUpon>NetDb.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IPDb.dbml.layout">
+      <DependentUpon>IPDb.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FlatformDb.dbml.layout">
+      <DependentUpon>FlatformDb.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="db\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

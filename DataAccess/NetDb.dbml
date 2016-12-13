@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MAINAMDB" Class="NetDbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=MAINAMDB.mssql.somee.com;Initial Catalog=MAINAMDB;Persist Security Info=False;User ID=mainam_SQLLogin_1;Packet Size=4096;Workstation ID=MAINAMDB.mssql.somee.com" SettingsObjectName="DataAccess.Properties.Settings" SettingsPropertyName="MAINAMDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.NET" Member="NETs">
+    <Type Name="NET">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NET_ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NET_NAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NET_API_KEY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="NET_STATUS" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AFF_SUB" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

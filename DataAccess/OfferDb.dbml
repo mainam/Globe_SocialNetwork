@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MAINAMDB" Class="OfferDbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=MAINAMDB.mssql.somee.com;Initial Catalog=MAINAMDB;Persist Security Info=False;User ID=mainam_SQLLogin_1;Packet Size=4096;Workstation ID=MAINAMDB.mssql.somee.com" SettingsObjectName="DataAccess.Properties.Settings" SettingsPropertyName="DBTestConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.OFFER" Member="OFFERs">
+    <Type Name="OFFER">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OFFER_ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="OFFER_NAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="OFFER_COUNTRY" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="OFFER_TRACKING" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="OFFER_REVIEW" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="OFFER_ICON" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="OFFER_PAYOUT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OFFER_POINT" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OFFER_DOWNLOAD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OFFER_RATE" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="OFFER_STATUS" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="OFFER_EXPIRE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="META_KEY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="NET_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CATE_NAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FLATFORM" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

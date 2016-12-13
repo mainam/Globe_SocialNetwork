@@ -1,0 +1,14 @@
+D:\Net\Code\Jackson\Site\DataAccess\bin\Release\DataAccess.dll
+D:\Net\Code\Jackson\Site\DataAccess\bin\Release\DataAccess.pdb
+D:\Net\Code\Jackson\Site\DataAccess\obj\Release\DataAccess.dll
+D:\Net\Code\Jackson\Site\DataAccess\obj\Release\DataAccess.pdb
+F:\Data\Users\NGOCNAM\Desktop\Site\DataAccess\bin\Release\DataAccess.dll
+F:\Data\Users\NGOCNAM\Desktop\Site\DataAccess\bin\Release\DataAccess.pdb
+F:\Data\Users\NGOCNAM\Desktop\Site\DataAccess\obj\Release\DataAccess.dll
+F:\Data\Users\NGOCNAM\Desktop\Site\DataAccess\obj\Release\DataAccess.pdb
+D:\MYPROJECT\SITE\SITE\Site\DataAccess\bin\Release\DataAccess.dll.config
+D:\MYPROJECT\SITE\SITE\Site\DataAccess\bin\Release\DataAccess.dll
+D:\MYPROJECT\SITE\SITE\Site\DataAccess\bin\Release\DataAccess.pdb
+D:\MYPROJECT\SITE\SITE\Site\DataAccess\obj\Release\DataAccess.csprojResolveAssemblyReference.cache
+D:\MYPROJECT\SITE\SITE\Site\DataAccess\obj\Release\DataAccess.dll
+D:\MYPROJECT\SITE\SITE\Site\DataAccess\obj\Release\DataAccess.pdb

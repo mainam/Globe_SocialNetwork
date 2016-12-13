@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DBTest" Class="CatDbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=MAINAMDB.mssql.somee.com;Initial Catalog=MAINAMDB;Persist Security Info=False;User ID=mainam_SQLLogin_1;Packet Size=4096;Workstation ID=MAINAMDB.mssql.somee.com" SettingsObjectName="DataAccess.Properties.Settings" SettingsPropertyName="DBTestConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CATEGORY" Member="CATEGORies">
+    <Type Name="CATEGORY">
+      <Column Name="CATEGORY_NAME" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CATEGORY_ICON" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,47 @@
+C:\Documents and Settings\fresher175\Desktop\NetManagement\DataAccess\bin\Debug\DataAccess.dll
+C:\Documents and Settings\fresher175\Desktop\NetManagement\DataAccess\bin\Debug\DataAccess.pdb
+C:\Documents and Settings\fresher175\Desktop\NetManagement\DataAccess\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\fresher175\Desktop\NetManagement\DataAccess\obj\Debug\DataAccess.dll
+C:\Documents and Settings\fresher175\Desktop\NetManagement\DataAccess\obj\Debug\DataAccess.pdb
+D:\Net\Web4Bap\SourceCode\NetManagement\DataAccess\bin\Debug\DataAccess.dll
+D:\Net\Web4Bap\SourceCode\NetManagement\DataAccess\bin\Debug\DataAccess.pdb
+D:\Net\Web4Bap\SourceCode\NetManagement\DataAccess\obj\Debug\DataAccess.dll
+D:\Net\Web4Bap\SourceCode\NetManagement\DataAccess\obj\Debug\DataAccess.pdb
+D:\Net\Web4Bap\SourceCode\NetManagement\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+D:\Net\Code\NetManagement\DataAccess\bin\Debug\DataAccess.dll
+D:\Net\Code\NetManagement\DataAccess\bin\Debug\DataAccess.pdb
+D:\Net\Code\NetManagement\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+D:\Net\Code\NetManagement\DataAccess\obj\Debug\DataAccess.dll
+D:\Net\Code\NetManagement\DataAccess\obj\Debug\DataAccess.pdb
+D:\Net\Code\Jont David\Site\DataAccess\bin\Debug\DataAccess.dll
+D:\Net\Code\Jont David\Site\DataAccess\bin\Debug\DataAccess.pdb
+D:\Net\Code\Jont David\Site\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+D:\Net\Code\Jont David\Site\DataAccess\obj\Debug\DataAccess.dll
+D:\Net\Code\Jont David\Site\DataAccess\obj\Debug\DataAccess.pdb
+D:\Net\Code\Jackson\Site\DataAccess\bin\Debug\DataAccess.dll
+D:\Net\Code\Jackson\Site\DataAccess\bin\Debug\DataAccess.pdb
+D:\Net\Code\Jackson\Site\DataAccess\obj\Debug\DataAccess.dll
+D:\Net\Code\Jackson\Site\DataAccess\obj\Debug\DataAccess.pdb
+D:\Net\Code\Jackson\Site\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+D:\Net\Code\OfferManager\Jackson\Site\DataAccess\bin\Debug\DataAccess.dll
+D:\Net\Code\OfferManager\Jackson\Site\DataAccess\bin\Debug\DataAccess.pdb
+D:\Net\Code\OfferManager\Jackson\Site\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+D:\Net\Code\OfferManager\Jackson\Site\DataAccess\obj\Debug\DataAccess.dll
+D:\Net\Code\OfferManager\Jackson\Site\DataAccess\obj\Debug\DataAccess.pdb
+F:\Data\Users\NGOCNAM\Desktop\Site\DataAccess\bin\Debug\DataAccess.dll
+F:\Data\Users\NGOCNAM\Desktop\Site\DataAccess\bin\Debug\DataAccess.pdb
+F:\Data\Users\NGOCNAM\Desktop\Site\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+F:\Data\Users\NGOCNAM\Desktop\Site\DataAccess\obj\Debug\DataAccess.dll
+F:\Data\Users\NGOCNAM\Desktop\Site\DataAccess\obj\Debug\DataAccess.pdb
+D:\MYPROJECT\SITE\SITE\Site\DataAccess\bin\Debug\DataAccess.dll.config
+D:\MYPROJECT\SITE\SITE\Site\DataAccess\bin\Debug\DataAccess.dll
+D:\MYPROJECT\SITE\SITE\Site\DataAccess\bin\Debug\DataAccess.pdb
+D:\MYPROJECT\SITE\SITE\Site\DataAccess\obj\Debug\DataAccess.dll
+D:\MYPROJECT\SITE\SITE\Site\DataAccess\obj\Debug\DataAccess.pdb
+D:\MYPROJECT\SITE\SITE\Site\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+D:\GIT\GLOBE\SOCIAL_NETWORK\DataAccess\bin\Debug\DataAccess.dll.config
+D:\GIT\GLOBE\SOCIAL_NETWORK\DataAccess\bin\Debug\DataAccess.dll
+D:\GIT\GLOBE\SOCIAL_NETWORK\DataAccess\bin\Debug\DataAccess.pdb
+D:\GIT\GLOBE\SOCIAL_NETWORK\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+D:\GIT\GLOBE\SOCIAL_NETWORK\DataAccess\obj\Debug\DataAccess.dll
+D:\GIT\GLOBE\SOCIAL_NETWORK\DataAccess\obj\Debug\DataAccess.pdb

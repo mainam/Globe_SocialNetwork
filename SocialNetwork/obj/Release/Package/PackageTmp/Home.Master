@@ -1,0 +1,179 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Home.master.cs" Inherits="NetManagement.Home1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="icon" type="image/png" href="admin/images/android.ico">
+    <link href="assets/css/style.css" type="text/css" rel="stylesheet">
+    <script src="assets/js/dc.js" async="true"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="bodywrapper" id="bodywrapper">
+            <div id="header" class="header sldc ">
+                <div class="tn">
+                    <div class="menu">
+                        <a class="btn btn-menu" id="menu">
+                            <i class="aic aic-menu"></i>
+                            <span class="tpmtxt ">Menu</span>
+                        </a>
+                    </div>
+                    <div class="tnc3">
+                        <div class="explore">
+                            <a href="Default.aspx" class="btn btn-explore">
+                                <i class="aic aic-explore"></i><span class="tpmtxt" style="font-size: 9px;">Categories</span>
+                            </a>
+                        </div>
+                        <div class="explore">
+                            <button class="btn btn-explore" id="otherCountry">
+                                <i class="aic aic-explore" style="background: url(&#39;assets/images/other.png&#39;); width: 24px;"></i><span class="tpmtxt" style="font-size: 9px;">Other Country</span>
+                            </button>
+
+                        </div>
+                        <div class="explore">
+                            <a href="Default.aspx" class="btn btn-explore" target="_new">
+                                <i class="aic aic-explore" style="background: url(&#39;assets/images/facebook.png&#39;); width: 24px;"></i><span class="tpmtxt" style="font-size: 12px;">Facebook</span>
+                            </a>
+                        </div>
+
+                        <div class="search">
+                            <div class="swpr">
+                                <form method="get" id="form_search" class="form_search" action="Default.aspx">
+                                    <div class="sch ">
+                                        <div class="sch_inp  ">
+                                            <div class="sch_inp_wp">
+                                                <input type="text" name="q" placeholder="Search" value="" id="searchfield" class="searchfield">
+                                            </div>
+                                            <button type="button" class="btn btn-schclose searchClose" id="searchClose" style="display: none;">
+                                                <i class="aic aic-cross"></i>
+                                            </button>
+                                        </div>
+                                        <div class="sch_btn">
+                                            <div class="sch_btn_wp">
+                                                <button type="submit" class="btn btn-orange">GO</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="logoholder">
+                        <div class="mblogo">
+                            <ul class="mymenu">
+                                <li>
+                                    <h1 class="head"><a href="Default.aspx" title="Download Free Games, Apps">Home</a></h1>
+                                </li>
+                                <li>
+                                    <h1 class="head"><a href="Default.aspx" title="Download Free Games, Apps">Earn $$$</a></h1>
+                                </li>
+                                <li>
+                                    <h1 class="head"><a href="Default.aspx" title="Download Free Games, Apps">4 Rum</a></h1>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="search">
+                    <form method="get" id="form_search" class="form_search" action="Default.aspx">
+                        <div class="sch ">
+                            <div class="sch_inp  ">
+                                <div class="sch_inp_wp">
+                                    <input type="text" name="q" placeholder="Search" value="" id="searchfield" class="searchfield">
+                                </div>
+                                <button type="button" class="btn btn-schclose searchClose" id="searchClose" style="display: none;">
+                                    <i class="aic aic-cross"></i>
+                                </button>
+                            </div>
+                            <div class="sch_btn">
+                                <div class="sch_btn_wp">
+                                    <button type="submit" class="btn btn-orange">GO</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+            <div id="containtwrapper" class="containtwrapper sldc">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="slidnav" id="slidenavigation">
+                <div id="subcontentslider" style="height: 180px;">
+                    <div class="nvgp">
+
+                        <ul class="navlist">
+                            <li class="nTtl">Menu</li>
+                            <li class="nli  "><a href="Default.aspx" class="ns-a"><i class="bic bic-home"></i>Home</a>
+                            </li>
+                            <li class="nli "><a title="Download Free Games for Android" href="Default.aspx?cat=Game" class="ns-a"><i class="bic bic-games"></i>Games</a>
+                            </li>
+
+                            <li class="nli nliact"><a title="Download Free Apps for Android" href="Default.aspx?cat=App" class="ns-a"><i class="bic bic-apps"></i>Apps</a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="ftwpr sldc" style="margin-top: 100px">
+                <div id="footer-bar">
+                    <div class="table">
+                        <div class="td align-left va-m">
+
+                            <ul class="dinl">
+                                <li class="ftl"><a href="Default.aspx"><b>
+                                    <asp:Label runat="server" ID="lblwebSite" /></b></a></li>
+                                <li class="ftl">
+                                    <center><b>
+                                        Your IP:
+                                        <asp:Label runat="server" ID="lblIPAddress" />
+                                            </b>
+                                    </center>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div class="td footer-social align-right">
+                            <a href="http://info.flagcounter.com/i5cX">
+                                <img src="http://s10.flagcounter.com/count/i5cX/bg_FFFFFF/txt_000000/border_CCCCCC/columns_7/maxflags_28/viewers_3/labels_0/pageviews_0/flags_0/" alt="Flag Counter" border="0"></a>
+
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <link href="assets/css/common_media.css" type="text/css" rel="stylesheet" />
+    <link href="assets/css/web-media.css" type="text/css" rel="stylesheet" />
+    <style>
+        #element_to_pop_up {
+            display: none;
+            background-color: #fff;
+            border-radius: 10px 10px 10px 10px;
+            box-shadow: 0 0 10px 5px #999;
+            color: #111;
+            display: none;
+            min-width: 200px;
+            padding: 15px;
+        }
+    </style>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.bpopup.min.js"></script>
+    <script src="assets/js/main.js" type="text/javascript"></script>
+    <script src="assets/js/web-media.js" type="text/javascript"></script>
+    <%--<script src="assets/js/pace.min.js" type="text/javascript"></script>--%>
+    <script src="assets/js/jquery.lazyload.min.js" type="text/javascript"></script>
+    
+</body>
+</html>

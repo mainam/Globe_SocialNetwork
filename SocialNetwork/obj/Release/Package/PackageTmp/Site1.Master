@@ -1,0 +1,148 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="NetManagement.Site1" %>
+
+<%@ Register Src="~/Controls/ctFlatform.ascx" TagPrefix="uc1" TagName="ctFlatform" %>
+
+
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://appvn.com/android#topNewest -->
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="stylesheet" href="/file_files/style/app.css">
+    <link rel="stylesheet" href="/file_files/style/style.css">
+    <link type="text/css" rel="stylesheet" href="/file_files/style/icons-material-design.css">
+    <script src="/file_files/js/jquery-1.11.0.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="navbar navbar-collapse navbar-custom navbar-fixed-top">
+        <nav role="navigation" class="navbar-inverse">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" class="navbar-toggle" type="button">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
+                    <div role="search" class="navbar-form navbar-left" id="search-form">
+                        <div class="input-group custom-search-form">
+                            <input type="text" runat="server" class="form-control" id="keyword" placeholder="Enter keyword to search" value="" name="keyword" autocomplete="off">
+                            <span class="input-group-btn">
+                                <input class="btn btn-default" type="submit" name="search" runat="server" id="btnSearch" value="Search">
+                            </span>
+                        </div>
+
+                    </div>
+                    <ul class="nav navbar-nav navbar-right" id="join_info">
+                        <li><a href="/admin/login.aspx">Login</a></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </nav>
+        <div class="navtabs navtabs-fixed-top">
+            <div class="tabs-inner">
+                <div class="tab-category">
+                    <div class="btn-group">
+                        <button data-toggle="dropdown" class="btn btn-category dropdown-toggle" type="button">
+                            <i class="icon-material-menu"></i><span id="set_category_name">Category</span>
+                        </button>
+                        <ul role="menu" class="dropdown-menu category-list">
+                            <li>
+                                <a class="title-category" href="Default.aspx">
+                                    <span>All</span>
+                                </a>
+                            </li>
+                            <asp:Repeater runat="server" ID="repListCategory">
+                                <ItemTemplate>
+                                    <li>
+                                        <a class="title-category" href="Default.aspx?cat=<%#Eval("CATEGORY_NAME")%>&flatform=<%#Eval("FLATFORM")%>">
+                                            <span><%#Eval("CATEGORY_NAME")%></span>
+                                        </a>
+                                    </li>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab-block" id="top-header">
+                    <ul role="tablist" class="nav nav-tabs">
+                        <li id="top_topNewest1" runat="server"><a href="Default.aspx?Type=TopNewest" runat="server" id="topNewest">New Apps</a></li>
+                        <li id="top_topDownload1" runat="server"><a href="Default.aspx?Type=topDownload" runat="server" id="topDownload">Top Install</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div role="navigation" class="navbar-default sidebar">
+        <div class="sidebar-header">
+            <a title="Appvn" href="/Default.aspx" class="navbar-brand">
+                <img src="/file_files/logo.png"></a>
+        </div>
+        <div class="sidebar-nav navbar-collapse">
+            <uc1:ctFlatform runat="server" ID="ctFlatform" />
+        </div>
+        <!-- /.sidebar-collapse -->
+    </div>
+    <div id="page-wrapper">
+        <div class="box-app row">
+
+            <div class="container-fluid">
+                <div class="box-app row" style="margin-top: 120px" id="show_main_app">
+                    <form id="form1" runat="server">
+                        <div class="block-main view-col" id="apps-center">
+                            <div class="block-list" id="main-center">
+                                <div class="header">
+                                    <h3 id="topName" runat="server"></h3>
+                                </div>
+                                <div class="col-list" id="auto-scroll" style="margin: 0 auto">
+                                    <div>
+                                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                        </asp:ContentPlaceHolder>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-detail">
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="block-slidebar" id="topLeftStatus" style="margin-top: 120px; margin-right: 10px;">
+                    <asp:PlaceHolder runat="server" ID="rightSideBar"></asp:PlaceHolder>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="/file_files/js/app.min.js"></script>
+    <script src="/file_files/js/grayscale.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#<%=keyword.ClientID%>").keypress(function (event) {
+                var keycode = (event.keyCode ? event.keyCode : event.which);
+                if (keycode == '13') {
+                    location.href = "default.aspx?q=" + $("#<%=keyword.ClientID%>").val() + "&flatform=" + $("#keyword").attr("flatform");
+                }
+            });
+            $("#btnSearch").click(function () {
+                location.href = "default.aspx?q=" + $("#<%=keyword.ClientID%>").val() + "&flatform=" + $("#btnSearch").attr("flatform");
+            });
+        });
+    </script>
+</body>
+</html>

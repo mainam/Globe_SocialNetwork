@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="FlatformDb">
+  <DataContextMoniker Name="/FlatformDbDataContext" />
+  <nestedChildShapes>
+    <classShape Id="3b221a7c-6eba-47e8-820d-5f0289577014" absoluteBounds="4.25, 2.375, 2, 1.3862939453125">
+      <DataClassMoniker Name="/FlatformDbDataContext/FLATFORM" />
+      <nestedChildShapes>
+        <elementListCompartment Id="637d408e-0423-4855-94f8-08ca56f00b90" absoluteBounds="4.265, 2.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,9 @@
+DEBUG2016-06-06 02:40:40 – ExcelQueryArgs = FileName: 'Condition'; WorksheetName: ''; WorksheetIndex: ; StartRange: ; EndRange: ; Named Range: ; NoHeader: False; ColumnMappings: ; Transformations: , StrictMapping: None, UsePersistentConnection: False, TrimSpaces: None
+DEBUG2016-06-06 02:40:40 – Connection String: Provider=Microsoft.Jet.OLEDB.4.0;Data Source=Condition;Extended Properties="Excel 8.0;HDR=YES;IMEX=1"
+DEBUG2016-06-06 02:58:57 – ExcelQueryArgs = FileName: 'Condition'; WorksheetName: ''; WorksheetIndex: ; StartRange: ; EndRange: ; Named Range: ; NoHeader: False; ColumnMappings: ; Transformations: , StrictMapping: None, UsePersistentConnection: False, TrimSpaces: None
+DEBUG2016-06-06 02:58:57 – Connection String: Provider=Microsoft.Jet.OLEDB.4.0;Data Source=Condition;Extended Properties="Excel 8.0;HDR=YES;IMEX=1"
+DEBUG2016-06-06 03:05:32 – ExcelQueryArgs = FileName: 'Condition'; WorksheetName: ''; WorksheetIndex: ; StartRange: ; EndRange: ; Named Range: ; NoHeader: False; ColumnMappings: ; Transformations: , StrictMapping: None, UsePersistentConnection: False, TrimSpaces: None
+DEBUG2016-06-06 03:05:32 – Connection String: Provider=Microsoft.Jet.OLEDB.4.0;Data Source=Condition;Extended Properties="Excel 8.0;HDR=YES;IMEX=1"
+DEBUG2016-06-06 03:05:35 – SELECT * FROM [Sheet1$];
+DEBUG2016-06-06 04:01:55 – ExcelQueryArgs = FileName: 'Condition'; WorksheetName: ''; WorksheetIndex: ; StartRange: ; EndRange: ; Named Range: ; NoHeader: False; ColumnMappings: ; Transformations: , StrictMapping: None, UsePersistentConnection: False, TrimSpaces: None
+DEBUG2016-06-06 04:01:55 – Connection String: Provider=Microsoft.Jet.OLEDB.4.0;Data Source=Condition;Extended Properties="Excel 8.0;HDR=YES;IMEX=1"
