@@ -12,3 +12,9 @@ D:\MYPROJECT\SITE\SITE\Site\DataAccess\bin\Release\DataAccess.pdb
 D:\MYPROJECT\SITE\SITE\Site\DataAccess\obj\Release\DataAccess.csprojResolveAssemblyReference.cache
 D:\MYPROJECT\SITE\SITE\Site\DataAccess\obj\Release\DataAccess.dll
 D:\MYPROJECT\SITE\SITE\Site\DataAccess\obj\Release\DataAccess.pdb
+D:\GIT\GLOBE\SOCIAL_NETWORK\DataAccess\bin\Release\DataAccess.dll.config
+D:\GIT\GLOBE\SOCIAL_NETWORK\DataAccess\bin\Release\DataAccess.dll
+D:\GIT\GLOBE\SOCIAL_NETWORK\DataAccess\bin\Release\DataAccess.pdb
+D:\GIT\GLOBE\SOCIAL_NETWORK\DataAccess\obj\Release\DataAccess.csprojResolveAssemblyReference.cache
+D:\GIT\GLOBE\SOCIAL_NETWORK\DataAccess\obj\Release\DataAccess.dll
+D:\GIT\GLOBE\SOCIAL_NETWORK\DataAccess\obj\Release\DataAccess.pdb

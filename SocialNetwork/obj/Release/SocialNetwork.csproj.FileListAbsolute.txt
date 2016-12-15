@@ -1,4 +1,3 @@
-D:\GIT\GLOBE\SOCIAL_NETWORK\SocialNetwork\obj\Debug\SocialNetwork.csprojResolveAssemblyReference.cache
 D:\GIT\GLOBE\SOCIAL_NETWORK\SocialNetwork\bin\DataAccess.dll
 D:\GIT\GLOBE\SOCIAL_NETWORK\SocialNetwork\bin\EntityFramework.dll
 D:\GIT\GLOBE\SOCIAL_NETWORK\SocialNetwork\bin\EntityFramework.SqlServer.dll
@@ -68,8 +67,9 @@ D:\GIT\GLOBE\SOCIAL_NETWORK\SocialNetwork\bin\ko\System.Spatial.resources.dll
 D:\GIT\GLOBE\SOCIAL_NETWORK\SocialNetwork\bin\ru\System.Spatial.resources.dll
 D:\GIT\GLOBE\SOCIAL_NETWORK\SocialNetwork\bin\zh-Hans\System.Spatial.resources.dll
 D:\GIT\GLOBE\SOCIAL_NETWORK\SocialNetwork\bin\zh-Hant\System.Spatial.resources.dll
+D:\GIT\GLOBE\SOCIAL_NETWORK\SocialNetwork\obj\Release\SocialNetwork.csprojResolveAssemblyReference.cache
 D:\GIT\GLOBE\SOCIAL_NETWORK\SocialNetwork\bin\SocialNetwork.dll.config
 D:\GIT\GLOBE\SOCIAL_NETWORK\SocialNetwork\bin\SocialNetwork.dll
 D:\GIT\GLOBE\SOCIAL_NETWORK\SocialNetwork\bin\SocialNetwork.pdb
-D:\GIT\GLOBE\SOCIAL_NETWORK\SocialNetwork\obj\Debug\SocialNetwork.dll
-D:\GIT\GLOBE\SOCIAL_NETWORK\SocialNetwork\obj\Debug\SocialNetwork.pdb
+D:\GIT\GLOBE\SOCIAL_NETWORK\SocialNetwork\obj\Release\SocialNetwork.dll
+D:\GIT\GLOBE\SOCIAL_NETWORK\SocialNetwork\obj\Release\SocialNetwork.pdb

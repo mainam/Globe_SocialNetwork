@@ -46,5 +46,16 @@ namespace DataAccess.Properties {
                 return ((string)(this["MAINAMDBConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=103.48.81.23;Initial Catalog=wdmfglrf_SOCIAL_NETWORK;Persist Security" +
+            " Info=True;User ID=wdmfglrf_mainam;Password=abc13579")]
+        public string wdmfglrf_SOCIAL_NETWORKConnectionString {
+            get {
+                return ((string)(this["wdmfglrf_SOCIAL_NETWORKConnectionString"]));
+            }
+        }
     }
 }

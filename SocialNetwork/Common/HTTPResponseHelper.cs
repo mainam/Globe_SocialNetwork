@@ -6,7 +6,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using Newtonsoft.Json;
 
-namespace CDYT.Common
+namespace SocialNetwork.Common
 {
     public static class HTTPResponseHelper
     {
