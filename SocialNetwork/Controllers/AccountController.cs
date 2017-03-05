@@ -48,6 +48,7 @@ namespace SocialNetwork.Controllers
 
 
         }
+
         [HttpPost]
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(HttpResponseMessage))]
         [Route("~/Account/Login")]
@@ -60,10 +61,36 @@ namespace SocialNetwork.Controllers
                     var entity = JsonConvert.DeserializeObject<dynamic>(jsonJObject.ToString());
                     String username = entity.UserName.ToString();
                     String password = entity.Password.ToString();
-                    return HTTPResponseHelper.CreateResponse(Request, HttpStatusCode.OK, UserInfo.Login(context,username,password));
+                    dynamic device = entity.Device;
+
+                    return HTTPResponseHelper.CreateResponse(Request, HttpStatusCode.OK, UserInfo.Login(context, username, password, device.DeviceId.ToString(), device.Token.ToString()));
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
+            {
+                return HTTPResponseHelper.CreateResponse(Request, HttpStatusCode.NotFound, new ErrorCls(e.Message));
+
+            }
+
+
+        }
+
+        [HttpPost]
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(HttpResponseMessage))]
+        [Route("~/Account/Register")]
+        public HttpResponseMessage Register(JObject jsonJObject)
+        {
+            try
+            {
+                using (var context = new UserDbDataContext())
+                {
+                    var entity = JsonConvert.DeserializeObject<dynamic>(jsonJObject.ToString());
+                    dynamic device = entity.Device;
+
+                    return HTTPResponseHelper.CreateResponse(Request, HttpStatusCode.OK, UserInfo.Register(context, entity.UserName, entity.FullName, entity.Password, entity.Email,entity.ImageUrl,device.DeviceId.ToString(), device.Token.ToString()));
+                }
+            }
+            catch (Exception e)
             {
                 return HTTPResponseHelper.CreateResponse(Request, HttpStatusCode.NotFound, new ErrorCls(e.Message));
 

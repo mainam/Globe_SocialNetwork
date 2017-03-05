@@ -169,8 +169,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\PublishProfiles\publish.pubxml" />
-    <None Include="Properties\PublishProfiles\publishP.pubxml" />
+    <None Include="Properties\PublishProfiles\apidemo.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

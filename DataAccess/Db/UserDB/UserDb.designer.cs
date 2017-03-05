@@ -30,13 +30,16 @@ namespace DataAccess.Db.UserDB
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void InserttbDevice(tbDevice instance);
+    partial void UpdatetbDevice(tbDevice instance);
+    partial void DeletetbDevice(tbDevice instance);
     partial void InserttbUser(tbUser instance);
     partial void UpdatetbUser(tbUser instance);
     partial void DeletetbUser(tbUser instance);
     #endregion
 		
 		public UserDbDataContext() : 
-				base(global::DataAccess.Properties.Settings.Default.wdmfglrf_SOCIAL_NETWORKConnectionString, mappingSource)
+				base(global::DataAccess.Properties.Settings.Default.wdmfglrf_SOCIAL_NETWORKConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -65,11 +68,170 @@ namespace DataAccess.Db.UserDB
 			OnCreated();
 		}
 		
+		public System.Data.Linq.Table<tbDevice> tbDevices
+		{
+			get
+			{
+				return this.GetTable<tbDevice>();
+			}
+		}
+		
 		public System.Data.Linq.Table<tbUser> tbUsers
 		{
 			get
 			{
 				return this.GetTable<tbUser>();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbDevice")]
+	public partial class tbDevice : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _DeviceId;
+		
+		private string _Token;
+		
+		private string _UserName;
+		
+		private EntityRef<tbUser> _tbUser;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnDeviceIdChanging(string value);
+    partial void OnDeviceIdChanged();
+    partial void OnTokenChanging(string value);
+    partial void OnTokenChanged();
+    partial void OnUserNameChanging(string value);
+    partial void OnUserNameChanged();
+    #endregion
+		
+		public tbDevice()
+		{
+			this._tbUser = default(EntityRef<tbUser>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeviceId", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string DeviceId
+		{
+			get
+			{
+				return this._DeviceId;
+			}
+			set
+			{
+				if ((this._DeviceId != value))
+				{
+					this.OnDeviceIdChanging(value);
+					this.SendPropertyChanging();
+					this._DeviceId = value;
+					this.SendPropertyChanged("DeviceId");
+					this.OnDeviceIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Token", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string Token
+		{
+			get
+			{
+				return this._Token;
+			}
+			set
+			{
+				if ((this._Token != value))
+				{
+					this.OnTokenChanging(value);
+					this.SendPropertyChanging();
+					this._Token = value;
+					this.SendPropertyChanged("Token");
+					this.OnTokenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string UserName
+		{
+			get
+			{
+				return this._UserName;
+			}
+			set
+			{
+				if ((this._UserName != value))
+				{
+					if (this._tbUser.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUserNameChanging(value);
+					this.SendPropertyChanging();
+					this._UserName = value;
+					this.SendPropertyChanged("UserName");
+					this.OnUserNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbUser_tbDevice", Storage="_tbUser", ThisKey="UserName", OtherKey="UserName", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public tbUser tbUser
+		{
+			get
+			{
+				return this._tbUser.Entity;
+			}
+			set
+			{
+				tbUser previousValue = this._tbUser.Entity;
+				if (((previousValue != value) 
+							|| (this._tbUser.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbUser.Entity = null;
+						previousValue.tbDevices.Remove(this);
+					}
+					this._tbUser.Entity = value;
+					if ((value != null))
+					{
+						value.tbDevices.Add(this);
+						this._UserName = value.UserName;
+					}
+					else
+					{
+						this._UserName = default(string);
+					}
+					this.SendPropertyChanged("tbUser");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -90,7 +252,9 @@ namespace DataAccess.Db.UserDB
 		
 		private System.DateTime _LastLogin;
 		
-		private string _Token;
+		private string _ImageUrl;
+		
+		private EntitySet<tbDevice> _tbDevices;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -106,12 +270,13 @@ namespace DataAccess.Db.UserDB
     partial void OnEmailChanged();
     partial void OnLastLoginChanging(System.DateTime value);
     partial void OnLastLoginChanged();
-    partial void OnTokenChanging(string value);
-    partial void OnTokenChanged();
+    partial void OnImageUrlChanging(string value);
+    partial void OnImageUrlChanged();
     #endregion
 		
 		public tbUser()
 		{
+			this._tbDevices = new EntitySet<tbDevice>(new Action<tbDevice>(this.attach_tbDevices), new Action<tbDevice>(this.detach_tbDevices));
 			OnCreated();
 		}
 		
@@ -215,23 +380,36 @@ namespace DataAccess.Db.UserDB
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Token", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Token
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageUrl", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string ImageUrl
 		{
 			get
 			{
-				return this._Token;
+				return this._ImageUrl;
 			}
 			set
 			{
-				if ((this._Token != value))
+				if ((this._ImageUrl != value))
 				{
-					this.OnTokenChanging(value);
+					this.OnImageUrlChanging(value);
 					this.SendPropertyChanging();
-					this._Token = value;
-					this.SendPropertyChanged("Token");
-					this.OnTokenChanged();
+					this._ImageUrl = value;
+					this.SendPropertyChanged("ImageUrl");
+					this.OnImageUrlChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbUser_tbDevice", Storage="_tbDevices", ThisKey="UserName", OtherKey="UserName")]
+		public EntitySet<tbDevice> tbDevices
+		{
+			get
+			{
+				return this._tbDevices;
+			}
+			set
+			{
+				this._tbDevices.Assign(value);
 			}
 		}
 		
@@ -253,6 +431,18 @@ namespace DataAccess.Db.UserDB
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_tbDevices(tbDevice entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbUser = this;
+		}
+		
+		private void detach_tbDevices(tbDevice entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbUser = null;
 		}
 	}
 }

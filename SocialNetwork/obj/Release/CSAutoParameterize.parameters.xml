@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="myConnectionString-Web.config Connection String" description="myConnectionString Connection String used in web.config by the application to access the database." defaultValue="Data Source=103.48.81.23;Initial Catalog=wdmfglrf_NETOFFER;User ID=wdmfglrf_netoffer;Password=***********" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\GIT\\GLOBE\\SOCIAL_NETWORK\\SocialNetwork\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='myConnectionString']/@connectionString" />
+  </parameter>
+</parameters>
