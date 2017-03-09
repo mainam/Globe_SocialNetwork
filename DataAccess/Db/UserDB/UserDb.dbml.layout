@@ -2,23 +2,23 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="UserDb">
   <DataContextMoniker Name="/UserDbDataContext" />
   <nestedChildShapes>
-    <classShape Id="26ade018-8562-4604-9616-10b108a64f45" absoluteBounds="5.5, 2.125, 2, 1.3862939453125">
-      <DataClassMoniker Name="/UserDbDataContext/tbDevice" />
-      <nestedChildShapes>
-        <elementListCompartment Id="35f85c92-b5ba-4fda-8d78-c0610e4abe1b" absoluteBounds="5.515, 2.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="dfd6675d-8c7b-41e1-a92f-aecca68c135e" absoluteBounds="4, 2.125, 2, 1.9631982421875">
+    <classShape Id="54e10be5-388a-48cf-864d-f61c4b6cc373" absoluteBounds="4.625, 2.25, 2, 1.9631982421875">
       <DataClassMoniker Name="/UserDbDataContext/tbUser" />
       <nestedChildShapes>
-        <elementListCompartment Id="65edcbfd-d957-4a09-8122-83c4a04f21f7" absoluteBounds="4.015, 2.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="f001645d-ff91-48ca-b1e6-eb06edae044a" absoluteBounds="4.64, 2.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5 : 2.125); (5 : 1.875); (6.5 : 1.875); (6.5 : 2.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <classShape Id="0e8685e5-73f1-4d1d-97e6-38bc1a7d7817" absoluteBounds="7.5, 1.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/UserDbDataContext/tbDevice" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1929a520-732f-4843-9000-16bdfc7623b1" absoluteBounds="7.515, 2.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.625 : 2.69314697265625); (7.5 : 2.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/UserDbDataContext/tbUser/tbUser_tbDevice" />
       <nodes>
-        <classShapeMoniker Id="dfd6675d-8c7b-41e1-a92f-aecca68c135e" />
-        <classShapeMoniker Id="26ade018-8562-4604-9616-10b108a64f45" />
+        <classShapeMoniker Id="54e10be5-388a-48cf-864d-f61c4b6cc373" />
+        <classShapeMoniker Id="0e8685e5-73f1-4d1d-97e6-38bc1a7d7817" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

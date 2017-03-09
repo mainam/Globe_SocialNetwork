@@ -14,7 +14,9 @@ namespace DataAccess
                 throw new Exception("Tài khoản không tồn tại");
             if (user.Password == password)
             {
-                user.LastLogin = DateTime.Now;
+                user.LastLogin = DateTime.Now.ToUniversalTime().Subtract(
+    new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)
+    ).TotalMilliseconds;
                 tbDevice device = context.tbDevices.SingleOrDefault(x => x.DeviceId.Equals(deviceId));
                 if (device != null)
                 {
@@ -49,13 +51,16 @@ namespace DataAccess
                 FullName = fullname,
                 Email = email,
                 ImageUrl = imageUrl,
-                Password = password
+                Password = password,
+                LastLogin = new DateTime().ToUniversalTime().Subtract(
+    new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)
+    ).TotalMilliseconds
             };
 
             context.tbUsers.InsertOnSubmit(user);
 
             tbDevice device = context.tbDevices.SingleOrDefault(x => x.DeviceId.Equals(deviceId));
-            if (device != null)
+            if (device == null)
             {
                 context.tbDevices.InsertOnSubmit(new tbDevice()
                 {

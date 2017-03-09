@@ -62,8 +62,10 @@ namespace SocialNetwork.Controllers
                     String username = entity.UserName.ToString();
                     String password = entity.Password.ToString();
                     dynamic device = entity.Device;
+                    tbUser user = UserInfo.Login(context, username, password, device.DeviceId.ToString(), device.Token.ToString());
 
-                    return HTTPResponseHelper.CreateResponse(Request, HttpStatusCode.OK, UserInfo.Login(context, username, password, device.DeviceId.ToString(), device.Token.ToString()));
+                    return HTTPResponseHelper.CreateResponse(Request, HttpStatusCode.OK, new { user.FullName, user.Email, user.ImageUrl, user.LastLogin, user.UserName });
+
                 }
             }
             catch (Exception e)
@@ -87,7 +89,9 @@ namespace SocialNetwork.Controllers
                     var entity = JsonConvert.DeserializeObject<dynamic>(jsonJObject.ToString());
                     dynamic device = entity.Device;
 
-                    return HTTPResponseHelper.CreateResponse(Request, HttpStatusCode.OK, UserInfo.Register(context, entity.UserName, entity.FullName, entity.Password, entity.Email,entity.ImageUrl,device.DeviceId.ToString(), device.Token.ToString()));
+                    tbUser user = UserInfo.Register(context, entity.UserName.ToString(), entity.FullName.ToString(), entity.Password.ToString(), entity.Email.ToString(), entity.ImageUrl.ToString(), device.DeviceId.ToString(), device.Token.ToString());
+
+                    return HTTPResponseHelper.CreateResponse(Request, HttpStatusCode.OK, new { user.FullName,user.Email,user.ImageUrl,user.LastLogin,user.UserName});
                 }
             }
             catch (Exception e)
