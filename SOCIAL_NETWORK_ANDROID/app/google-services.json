@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "969494783248",
+    "firebase_url": "https://socnetwork-142503.firebaseio.com",
+    "project_id": "socnetwork-142503",
+    "storage_bucket": "socnetwork-142503.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:969494783248:android:f5a82ad5573c5aa6",
+        "android_client_info": {
+          "package_name": "com.isoftglobe.socialnetwork"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "969494783248-3pujefkmq8v7g3k0vn1vd0r4ac87ktt1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWCyHSytTbUACH4jcgEE7Nd8MTLSVfd5k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
