@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="wdmfglrf_SOCIAL_NETWORK" Class="DbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=103.48.81.23;Initial Catalog=wdmfglrf_SOCIAL_NETWORK;Persist Security Info=True;User ID=wdmfglrf_SOTAYCHEMGIO" SettingsObjectName="DataAccess.Properties.Settings" SettingsPropertyName="wdmfglrf_SOCIAL_NETWORKConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tbUser" Member="tbUsers">
+    <Type Name="tbUser">
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastLogin" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="ImageUrl" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Token" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tbUser_tbFriend" Member="tbFriends" ThisKey="UserName" OtherKey="UserName" Type="tbFriend" />
+      <Association Name="tbUser_tbFriend1" Member="tbFriends1" ThisKey="UserName" OtherKey="Friend" Type="tbFriend" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbFriend" Member="tbFriends">
+    <Type Name="tbFriend">
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Friend" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FollowDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="tbUser_tbFriend" Member="tbUser" ThisKey="UserName" OtherKey="UserName" Type="tbUser" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="tbUser_tbFriend1" Member="tbUser1" ThisKey="Friend" OtherKey="UserName" Type="tbUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

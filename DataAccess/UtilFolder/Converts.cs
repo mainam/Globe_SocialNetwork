@@ -178,5 +178,40 @@ namespace DataAccess.UtilFolder
                 return "";
             }
         }
+
+        public static string ToStringFromDynamic(dynamic dynamic, String field)
+        {
+            try
+            {
+                return dynamic[field].ToString();
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Lỗi truyền param " + field);
+            }
+
+        }
+
+        public static string ToStringFromDynamic(dynamic dynamic, params String[] field)
+        {
+            String data = null;
+            foreach (String _string in field)
+            {
+                try
+                {
+                    data = dynamic[field].ToString();
+                    break;
+                }
+                catch (Exception e)
+                {
+                }
+            }
+            if (data == null)
+                throw new Exception("Lỗi truyền param " + field[0]);
+            return data;
+
+
+        }
     }
 }

@@ -24,21 +24,23 @@ namespace SocialNetwork.Controllers
 
         [HttpPost]
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(HttpResponseMessage))]
-        [Route("~/Account/GetById")]
+        [Route("~/Account/GetMemberById")]
         public HttpResponseMessage GetMemberById(JObject jsonJObject)
         {
             try
             {
-                //String ip = ((HttpContextBase)Request.Properties["MS_HttpContext"]).Request.UserHostAddress;
-                //String country = IPInfo.getCountryFromIP(ip);
-                var entity = JsonConvert.DeserializeObject<dynamic>(jsonJObject.ToString());
-                String memberId = entity.MemberId.ToString();
-                return HTTPResponseHelper.CreateResponse(Request, HttpStatusCode.OK, new { Name = memberId });
-                //var obj = MemberInfo.GetById(memberId, country);
-                //if (obj != null)
-                //    return HTTPResponseHelper.CreateResponse(Request, HttpStatusCode.OK, obj);
-                //else
-                //    return HTTPResponseHelper.CreateResponse(Request, HttpStatusCode.NotFound, "");
+                using (var context = new DataAccess.Db.UserDB2.DbDataContext())
+                {
+                    var entity = JsonConvert.DeserializeObject<dynamic>(jsonJObject.ToString());
+                    dynamic device = entity.Device;
+                    String findUser = DataAccess.UtilFolder.Converts.ToStringFromDynamic(entity, "FindUser");
+                    String requestBy = DataAccess.UtilFolder.Converts.ToStringFromDynamic(entity, "RequestBy");
+                    bool isFriend = false;
+                    DataAccess.Db.UserDB2.tbUser user = UserInfo.getByUserId(context, findUser,requestBy,ref isFriend);
+
+                    return HTTPResponseHelper.CreateResponse(Request, HttpStatusCode.OK, new { User = new { user.FullName, user.Email, user.ImageUrl, user.LastLogin, user.UserName }, IsFriend = isFriend });
+
+                }
             }
             catch
             {
@@ -59,12 +61,17 @@ namespace SocialNetwork.Controllers
                 using (var context = new UserDbDataContext())
                 {
                     var entity = JsonConvert.DeserializeObject<dynamic>(jsonJObject.ToString());
-                    String username = entity.UserName.ToString();
-                    String password = entity.Password.ToString();
                     dynamic device = entity.Device;
-                    tbUser user = UserInfo.Login(context, username, password, device.DeviceId.ToString(), device.Token.ToString());
+                    String email= DataAccess.UtilFolder.Converts.ToStringFromDynamic(entity, "Email");
+                    String username = DataAccess.UtilFolder.Converts.ToStringFromDynamic(entity, "UserName");
+                    String password = DataAccess.UtilFolder.Converts.ToStringFromDynamic(entity, "Password");
+                    String deviceId = DataAccess.UtilFolder.Converts.ToStringFromDynamic(device, "DeviceId");
+                    String devicetoken = DataAccess.UtilFolder.Converts.ToStringFromDynamic(device, "Token");
 
-                    return HTTPResponseHelper.CreateResponse(Request, HttpStatusCode.OK, new { user.FullName, user.Email, user.ImageUrl, user.LastLogin, user.UserName });
+
+                    tbUser user = UserInfo.Login(context, username, email, password, deviceId, devicetoken);
+                   
+                    return HTTPResponseHelper.CreateResponse(Request, HttpStatusCode.OK, new { user.FullName, user.Email, user.ImageUrl, user.LastLogin, user.UserName, user.Token });
 
                 }
             }
@@ -72,6 +79,31 @@ namespace SocialNetwork.Controllers
             {
                 return HTTPResponseHelper.CreateResponse(Request, HttpStatusCode.NotFound, new ErrorCls(e.Message));
 
+            }
+
+
+        }
+
+        [HttpPost]
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(HttpResponseMessage))]
+        [Route("~/Account/Logout")]
+        public HttpResponseMessage Logout(JObject jsonJObject)
+        {
+            try
+            {
+                using (var context = new UserDbDataContext())
+                {
+                    var entity = JsonConvert.DeserializeObject<dynamic>(jsonJObject.ToString());
+                    String username = DataAccess.UtilFolder.Converts.ToStringFromDynamic(entity,"UserName");
+                    String token = DataAccess.UtilFolder.Converts.ToStringFromDynamic(entity, "Token");
+                    if (UserInfo.Logout(context, username, token))
+                        return HTTPResponseHelper.CreateResponse(Request, HttpStatusCode.OK, new { Message = "Logout thành công" });
+                    return HTTPResponseHelper.CreateResponse(Request, HttpStatusCode.OK, new { Message = "Logout không thành công" });
+                }
+            }
+            catch (Exception e)
+            {
+                return HTTPResponseHelper.CreateResponse(Request, HttpStatusCode.NotFound, new ErrorCls(e.Message));            
             }
 
 
@@ -88,10 +120,19 @@ namespace SocialNetwork.Controllers
                 {
                     var entity = JsonConvert.DeserializeObject<dynamic>(jsonJObject.ToString());
                     dynamic device = entity.Device;
+                    String username = DataAccess.UtilFolder.Converts.ToStringFromDynamic(entity, "UserName");
+                    String fullname = DataAccess.UtilFolder.Converts.ToStringFromDynamic(entity, "FullName");
+                    String password = DataAccess.UtilFolder.Converts.ToStringFromDynamic(entity, "Password");
+                    String email = DataAccess.UtilFolder.Converts.ToStringFromDynamic(entity, "Email");
+                    String imageUrl = DataAccess.UtilFolder.Converts.ToStringFromDynamic(entity, "ImageUrl");
 
-                    tbUser user = UserInfo.Register(context, entity.UserName.ToString(), entity.FullName.ToString(), entity.Password.ToString(), entity.Email.ToString(), entity.ImageUrl.ToString(), device.DeviceId.ToString(), device.Token.ToString());
+                    String deviceId = DataAccess.UtilFolder.Converts.ToStringFromDynamic(device, "DeviceId");
+                    String devicetoken = DataAccess.UtilFolder.Converts.ToStringFromDynamic(device, "Token");
 
-                    return HTTPResponseHelper.CreateResponse(Request, HttpStatusCode.OK, new { user.FullName,user.Email,user.ImageUrl,user.LastLogin,user.UserName});
+
+                    tbUser user = UserInfo.Register(context, username, fullname, password, email, imageUrl, deviceId, devicetoken);
+
+                    return HTTPResponseHelper.CreateResponse(Request, HttpStatusCode.OK, new { user.FullName, user.Email, user.ImageUrl, user.LastLogin, user.UserName, user.Token });
                 }
             }
             catch (Exception e)

@@ -43,6 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Db\UserDB2\Db.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Db.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Db\UserDB\UserDb.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -63,6 +68,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Db\UserDB2\Db.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Db.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Db\UserDB\UserDb.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>UserDb.designer.cs</LastGenOutput>
@@ -79,6 +89,11 @@
   <ItemGroup>
     <None Include="Db\UserDB\UserDb.dbml.layout">
       <DependentUpon>UserDb.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Db\UserDB2\Db.dbml.layout">
+      <DependentUpon>Db.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
