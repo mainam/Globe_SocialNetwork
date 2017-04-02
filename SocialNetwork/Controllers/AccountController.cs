@@ -36,7 +36,7 @@ namespace SocialNetwork.Controllers
                     String findUser = DataAccess.UtilFolder.Converts.ToStringFromDynamic(entity, "FindUser");
                     String requestBy = DataAccess.UtilFolder.Converts.ToStringFromDynamic(entity, "RequestBy");
                     bool isFriend = false;
-                    DataAccess.Db.UserDB2.tbUser user = UserInfo.getByUserId(context, findUser,requestBy,ref isFriend);
+                    DataAccess.Db.UserDB2.tbUser user = UserInfo.getByUserId(context, findUser, requestBy, ref isFriend);
 
                     return HTTPResponseHelper.CreateResponse(Request, HttpStatusCode.OK, new { User = new { user.FullName, user.Email, user.ImageUrl, user.LastLogin, user.UserName }, IsFriend = isFriend });
 
@@ -62,7 +62,7 @@ namespace SocialNetwork.Controllers
                 {
                     var entity = JsonConvert.DeserializeObject<dynamic>(jsonJObject.ToString());
                     dynamic device = entity.Device;
-                    String email= DataAccess.UtilFolder.Converts.ToStringFromDynamic(entity, "Email");
+                    String email = DataAccess.UtilFolder.Converts.ToStringFromDynamic(entity, "Email");
                     String username = DataAccess.UtilFolder.Converts.ToStringFromDynamic(entity, "UserName");
                     String password = DataAccess.UtilFolder.Converts.ToStringFromDynamic(entity, "Password");
                     String deviceId = DataAccess.UtilFolder.Converts.ToStringFromDynamic(device, "DeviceId");
@@ -70,9 +70,40 @@ namespace SocialNetwork.Controllers
 
 
                     tbUser user = UserInfo.Login(context, username, email, password, deviceId, devicetoken);
-                   
+
                     return HTTPResponseHelper.CreateResponse(Request, HttpStatusCode.OK, new { user.FullName, user.Email, user.ImageUrl, user.LastLogin, user.UserName, user.Token });
 
+                }
+            }
+            catch (Exception e)
+            {
+                return HTTPResponseHelper.CreateResponse(Request, HttpStatusCode.NotFound, new ErrorCls(e.Message));
+
+            }
+
+
+        }
+
+
+        [HttpPost]
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(HttpResponseMessage))]
+        [Route("~/Account/ChangePassword")]
+        public HttpResponseMessage ChangePassword(JObject jsonJObject)
+        {
+            try
+            {
+                using (var context = new UserDbDataContext())
+                {
+                    var entity = JsonConvert.DeserializeObject<dynamic>(jsonJObject.ToString());
+                    dynamic device = entity.Device;
+                    String userName = DataAccess.UtilFolder.Converts.ToStringFromDynamic(entity, "UserName");
+                    String token = DataAccess.UtilFolder.Converts.ToStringFromDynamic(entity, "Token");
+                    String currentPassword = DataAccess.UtilFolder.Converts.ToStringFromDynamic(entity, "CurrentPassword");
+                    String newPassword = DataAccess.UtilFolder.Converts.ToStringFromDynamic(entity, "NewPassword");
+
+                    tbUser user = UserInfo.ChangePassword(context, userName, token, currentPassword, newPassword);
+
+                    return HTTPResponseHelper.CreateResponse(Request, HttpStatusCode.OK, new { user.FullName, user.Email, user.ImageUrl, user.LastLogin, user.UserName, user.Token });
                 }
             }
             catch (Exception e)
@@ -94,7 +125,7 @@ namespace SocialNetwork.Controllers
                 using (var context = new UserDbDataContext())
                 {
                     var entity = JsonConvert.DeserializeObject<dynamic>(jsonJObject.ToString());
-                    String username = DataAccess.UtilFolder.Converts.ToStringFromDynamic(entity,"UserName");
+                    String username = DataAccess.UtilFolder.Converts.ToStringFromDynamic(entity, "UserName");
                     String token = DataAccess.UtilFolder.Converts.ToStringFromDynamic(entity, "Token");
                     if (UserInfo.Logout(context, username, token))
                         return HTTPResponseHelper.CreateResponse(Request, HttpStatusCode.OK, new { Message = "Logout thành công" });
@@ -103,7 +134,7 @@ namespace SocialNetwork.Controllers
             }
             catch (Exception e)
             {
-                return HTTPResponseHelper.CreateResponse(Request, HttpStatusCode.NotFound, new ErrorCls(e.Message));            
+                return HTTPResponseHelper.CreateResponse(Request, HttpStatusCode.NotFound, new ErrorCls(e.Message));
             }
 
 
@@ -143,5 +174,7 @@ namespace SocialNetwork.Controllers
 
 
         }
+
+
     }
 }

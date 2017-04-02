@@ -9,7 +9,7 @@ namespace DataAccess
     {
         public static tbUser Login(UserDbDataContext context, String username, String email, String password, String deviceId, String deviceToken)
         {
-            var user = context.tbUsers.SingleOrDefault(x => x.UserName == username || x.Email== email);
+            var user = context.tbUsers.SingleOrDefault(x => x.UserName == username || x.Email == email);
             if (user == null)
                 throw new Exception("Tài khoản không tồn tại");
             if (user.Password == password)
@@ -57,7 +57,7 @@ namespace DataAccess
                 LastLogin = new DateTime().ToUniversalTime().Subtract(
     new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)
     ).TotalMilliseconds,
-                Token = StringUtils.encryptPassword(username+new DateTime().ToString())
+                Token = StringUtils.encryptPassword(username + new DateTime().ToString())
             };
 
             context.tbUsers.InsertOnSubmit(user);
@@ -88,13 +88,13 @@ namespace DataAccess
             if (user == null)
                 throw new Exception("Tài khoản không tồn tại");
             isFriend = user.tbFriends1.SingleOrDefault(x => x.UserName == requestBy) != null;
-            
+
             return user;
         }
 
         public static bool Logout(UserDbDataContext context, String username, String token)
         {
-            var user = context.tbUsers.SingleOrDefault(x => x.UserName == username && x.Token==token);
+            var user = context.tbUsers.SingleOrDefault(x => x.UserName == username && x.Token == token);
             if (user == null)
                 throw new Exception("User không tồn tại hoặc token sai");
 
@@ -102,6 +102,18 @@ namespace DataAccess
             context.tbDevices.DeleteAllOnSubmit(user.tbDevices);
             context.SubmitChanges();
             return true;
+        }
+
+        public static tbUser ChangePassword(UserDbDataContext context, string userName, string token, string currentPassword, string newPassword)
+        {
+            var user = context.tbUsers.SingleOrDefault(x => x.UserName == userName && x.Token == token);
+            if (user == null)
+                throw new Exception("User không tồn tại hoặc token sai");
+
+            if (user.Password == currentPassword)
+                user.Password = newPassword;
+            context.SubmitChanges();
+            return user;
         }
     }
 }
