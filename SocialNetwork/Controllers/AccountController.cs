@@ -176,5 +176,37 @@ namespace SocialNetwork.Controllers
         }
 
 
+
+        [HttpPost]
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(HttpResponseMessage))]
+        [Route("~/Account/ChangePassword")]
+        public HttpResponseMessage UpdateProfile(JObject jsonJObject)
+        {
+            try
+            {
+                using (var context = new UserDbDataContext())
+                {
+                    var entity = JsonConvert.DeserializeObject<dynamic>(jsonJObject.ToString());
+                    dynamic device = entity.Device;
+                    String userName = DataAccess.UtilFolder.Converts.ToStringFromDynamic(entity, "UserName");
+                    String token = DataAccess.UtilFolder.Converts.ToStringFromDynamic(entity, "Token");
+                    String currentPassword = DataAccess.UtilFolder.Converts.ToStringFromDynamic(entity, "CurrentPassword");
+                    String newPassword = DataAccess.UtilFolder.Converts.ToStringFromDynamic(entity, "NewPassword");
+
+                    tbUser user = UserInfo.ChangePassword(context, userName, token, currentPassword, newPassword);
+
+                    return HTTPResponseHelper.CreateResponse(Request, HttpStatusCode.OK, new { user.FullName, user.Email, user.ImageUrl, user.LastLogin, user.UserName, user.Token });
+                }
+            }
+            catch (Exception e)
+            {
+                return HTTPResponseHelper.CreateResponse(Request, HttpStatusCode.NotFound, new ErrorCls(e.Message));
+
+            }
+
+
+        }
+
+
     }
 }

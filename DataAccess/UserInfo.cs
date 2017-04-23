@@ -115,5 +115,29 @@ namespace DataAccess
             context.SubmitChanges();
             return user;
         }
+
+        public static tbUser ChangeAvatar(UserDbDataContext context, string userName, string token, string imageUrl)
+        {
+            var user = context.tbUsers.SingleOrDefault(x => x.UserName == userName && x.Token == token);
+            if (user == null)
+                throw new Exception("User không tồn tại hoặc token sai");
+            user.ImageUrl=imageUrl;
+            context.SubmitChanges();
+            return user;
+        }
+
+
+        public static tbUser UpdateProfile(UserDbDataContext context, string userName, string token, String email, String fullName)
+        {
+            var users = context.tbUsers.Where(x => x.UserName == userName && x.Token == token || x.Email==email);
+            if (users.Count()==0 || (users.Count() == 1&&users.First().UserName!=userName))
+                throw new Exception("User không tồn tại hoặc token sai");
+            if(users.Count()>1)
+                throw new Exception("Đã tồn tại tài khoản với email bạn đã nhập");
+            users.First().Email = email;
+            users.First().FullName = fullName;
+            context.SubmitChanges();
+            return users.First();
+        }
     }
 }
